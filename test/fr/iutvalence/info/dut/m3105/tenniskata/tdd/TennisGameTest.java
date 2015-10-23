@@ -5,24 +5,36 @@ import org.junit.Test;
 
 public class TennisGameTest
 {
+	private TennisGame tennisGame;
+	
 	@Test
 	public void loveAllTest() {
-		TennisGame tennisGame = new TennisGame();
-		Assert.assertEquals(tennisGame.getScore(),TennisGame.LOVE_ALL);
+		newTennisGame();
+		checkScore(TennisGame.LOVE_ALL);
 	}
 	
 	@Test
 	public void fifteenLoveTest() {
-		TennisGame tennisGame = new TennisGame();
+		newTennisGame();
 		tennisGame.serverScores();
-		Assert.assertEquals(tennisGame.getScore(),TennisGame.FIFTEEN_LOVE);
+		checkScore(TennisGame.FIFTEEN_LOVE);
 	}
 	
 	@Test
 	public void loveFifteenTest() {
-		TennisGame tennisGame = new TennisGame();
-		tennisGame.receverScores();
-		Assert.assertEquals(tennisGame.getScore(),TennisGame.LOVE_FIFTEEN);
+		newTennisGame();
+		tennisGame.receiverScores();
+		checkScore(TennisGame.LOVE_FIFTEEN);
+	}
+
+	private void checkScore(String scoreWaited)
+	{
+		Assert.assertEquals(tennisGame.getScore(),scoreWaited);
+	}
+
+	private void newTennisGame()
+	{
+		this.tennisGame = new TennisGame();
 	}
 
 }
