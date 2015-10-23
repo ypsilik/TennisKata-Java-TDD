@@ -10,21 +10,21 @@ public class TennisGameTest
 	@Test
 	public void loveAllTest() {
 		newTennisGame();
-		checkScore(TennisGame.LOVE_ALL);
+		checkScore(TennisGameScore.LOVE_ALL.getScoreString());
 	}
 	
 	@Test
 	public void fifteenLoveTest() {
 		newTennisGame();
 		tennisGame.serverScores();
-		checkScore(TennisGame.FIFTEEN_LOVE);
+		checkScore(TennisGameScore.FIFTEEN_LOVE.getScoreString());
 	}
 	
 	@Test
 	public void loveFifteenTest() {
 		newTennisGame();
 		tennisGame.receiverScores();
-		checkScore(TennisGame.LOVE_FIFTEEN);
+		checkScore(TennisGameScore.LOVE_FIFTEEN.getScoreString());
 	}
 
 	@Test
@@ -32,12 +32,12 @@ public class TennisGameTest
 		newTennisGame();
 		tennisGame.serverScores();
 		tennisGame.receiverScores();
-		checkScore(TennisGame.FIFTEEN_ALL);
+		checkScore(TennisGameScore.FIFTEEN_ALL.getScoreString());
 		
 		newTennisGame();
 		tennisGame.receiverScores();
 		tennisGame.serverScores();
-		checkScore(TennisGame.FIFTEEN_ALL);
+		checkScore(TennisGameScore.FIFTEEN_ALL.getScoreString());
 	}
 	
 	
